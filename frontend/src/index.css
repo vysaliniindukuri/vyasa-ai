@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html,
+  body {
+    min-height: 100vh;
+  }
+
+  body {
+    @apply font-sans text-white antialiased;
+    background:
+      radial-gradient(
+        1200px 600px at 20% -10%,
+        rgba(91, 140, 255, 0.18),
+        transparent
+      ),
+      radial-gradient(
+        900px 500px at 90% 10%,
+        rgba(160, 107, 255, 0.14),
+        transparent
+      ),
+      radial-gradient(
+        1000px 700px at 50% 120%,
+        rgba(109, 107, 255, 0.1),
+        transparent
+      ),
+      #07070b;
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  /* Slim, premium scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Respect reduced-motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Reusable glass surface helper mirroring the design-system combo */
+  .glass {
+    @apply border border-white/10 bg-white/5 shadow-glass backdrop-blur-2xl;
+  }
+}
